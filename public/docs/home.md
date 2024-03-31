@@ -291,11 +291,12 @@
 273. 本地歌曲文件匹配网易云歌曲信息
 274. 歌曲音质详情
 275. 歌曲红心数量
+276. 私人 FM 模式选择
 
 ## 安装
 
 ```shell
-$ git clone git@github.com:Binaryify/NeteaseCloudMusicApi.git
+$ git clone git@gitlab.com:Binaryify/NeteaseCloudMusicApi.git
 $ cd NeteaseCloudMusicApi
 $ npm install
 ```
@@ -352,7 +353,7 @@ v4.0.8 加入了 Vercel 配置文件,可以直接在 Vercel 下部署了,不需�
 
 ### 操作方法
 
-1. fork 此项目
+1. [fork](https://gitlab.com/Binaryify/neteasecloudmusicapi/-/forks/new) 此项目
 2. 在 Vercel 官网点击 `New Project`
 3. 点击 `Import Git Repository` 并选择你 fork 的此项目并点击`import`
 4. 点击 `PERSONAL ACCOUNT` 的 `select`
@@ -363,7 +364,7 @@ v4.0.8 加入了 Vercel 配置文件,可以直接在 Vercel 下部署了,不需�
 ## 腾讯云 serverless 部署
 因 `Vercel` 在国内访问太慢(不绑定自己的域名的情况下),在此提供腾讯云 serverless 部署方法(注意:腾讯云 serverless 并不是免费的,前三个月有免费额度,之后收费)
 ### 操作方法
-1. fork 此项目
+1. [fork](https://gitlab.com/Binaryify/neteasecloudmusicapi/-/forks/new)  此项目
 2. 在腾讯云serverless应用管理页面( https://console.cloud.tencent.com/sls ),点击`新建应用`
 3. 顶部`创建方式`选择 `Web 应用`
 4. 选择 `Express框架`,点击底部`下一步按钮`
@@ -427,9 +428,6 @@ banner({ type: 0 }).then((res) => {
 })
 ```
 
-## 更新到 v3.0 说明
-
-!>2018.10.14 更新到 3.0.0,使用了模块化机制,因为部分接口参数和 url 做了调整,如还不想升级到 3.0.0,请查看 [v2 的文档](http://binaryify.github.io/NeteaseCloudMusicApi/#/v2), [更新日志](https://github.com/Binaryify/NeteaseCloudMusicApi/blob/master/CHANGELOG.MD), [2.0+下载地址](https://github.com/Binaryify/NeteaseCloudMusicApi/releases/tag/v2.20.5), 同时 2.0+ 将不再维护
 
 ## Docker 容器运行
 
@@ -464,7 +462,7 @@ docker run -d -p 3000:3000 -e http_proxy= -e https_proxy= -e no_proxy= -e HTTP_P
 > 以下是自行 build docker 镜像方式
 
 ```
-$ git clone https://github.com/Binaryify/NeteaseCloudMusicApi && cd NeteaseCloudMusicApi
+$ git clone https://gitlab.com/Binaryify/neteasecloudmusicapi.git && cd NeteaseCloudMusicApi
 
 $ sudo docker build . -t netease-music-api
 
@@ -818,7 +816,7 @@ signature：用户签名
 
 ### 更新头像
 
-说明 : 登录后调用此接口,使用`'Content-Type': 'multipart/form-data'`上传图片 formData(name 为'imgFile'),可更新头像(参考: https://github.com/Binaryify/NeteaseCloudMusicApi/blob/master/public/avatar_update.html  ),支持命令行调用,参考module_example目录下`avatar_upload.js`
+说明 : 登录后调用此接口,使用`'Content-Type': 'multipart/form-data'`上传图片 formData(name 为'imgFile'),可更新头像(参考: https://gitlab.com/Binaryify/NeteaseCloudMusicApi/blob/main/public/avatar_update.html  ),支持命令行调用,参考module_example目录下`avatar_upload.js`
 
 **可选参数 :**
 
@@ -861,8 +859,6 @@ signature：用户签名
 
 **调用例子 :** `/user/playlist?uid=32953014`
 
-返回数据如下图 :
-![用户歌单](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/%E7%94%A8%E6%88%B7%E6%AD%8C%E5%8D%95.png)
 
 ### 更新歌单
 
@@ -937,7 +933,7 @@ tags: 歌单标签
 
 ### 歌单封面上传
 
-说明 : 登录后调用此接口,使用`'Content-Type': 'multipart/form-data'`上传图片 formData(name 为'imgFile'),可更新歌单封面(参考:https://github.com/Binaryify/NeteaseCloudMusicApi/blob/master/public/playlist_cover_update.html)
+说明 : 登录后调用此接口,使用`'Content-Type': 'multipart/form-data'`上传图片 formData(name 为'imgFile'),可更新歌单封面(参考:https://gitlab.com/Binaryify/NeteaseCloudMusicApi/blob/main/public/playlist_cover_update.html)
 
 **必选参数 :**  
 `id`: 歌单 id 3143833470
@@ -1686,8 +1682,6 @@ tags: 歌单标签
 
 **调用例子 :** `/lyric?id=33894312`
 
-返回数据如下图 :
-![获取歌词](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/%E6%AD%8C%E8%AF%8D.png)
 
 ### 获取逐字歌词
 
@@ -1789,8 +1783,6 @@ tags: 歌单标签
 
 **调用例子 :** `/comment/music?id=186016&limit=1` 对应晴天评论
 
-返回数据如下图 :
-![获取评论](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/comment.png)
 
 ### 楼层评论
 
@@ -2360,8 +2352,6 @@ pc: 云盘歌曲信息，如果不存在该字段，则为非云盘歌曲
 
 **调用例子 :** `/artists?id=6452`
 
-返回数据如下图 :
-![获取歌手单曲](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/artists.png)
 
 ### 获取歌手 mv
 
@@ -2390,8 +2380,6 @@ pc: 云盘歌曲信息，如果不存在该字段，则为非云盘歌曲
 
 **调用例子 :** `/artist/album?id=6452&limit=5` ( 周杰伦 )
 
-返回数据如下图 :
-![获取专辑内容](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/artist_album.png)
 
 ### 获取歌手描述
 
@@ -2471,8 +2459,6 @@ pc: 云盘歌曲信息，如果不存在该字段，则为非云盘歌曲
 
 **调用例子 :** `/recommend/resource`
 
-返回数据如下图 :
-![每日推荐歌单](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/%E6%8E%A8%E8%8D%90%E6%AD%8C%E5%8D%95.png)
 
 ### 获取每日推荐歌曲
 
@@ -2482,8 +2468,6 @@ pc: 云盘歌曲信息，如果不存在该字段，则为非云盘歌曲
 
 **调用例子 :** `/recommend/songs`
 
-返回数据如下图 :
-![每日推荐歌曲](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/%E6%8E%A8%E8%8D%90%E6%AD%8C%E6%9B%B2.png)
 
 ### 每日推荐歌曲-不感兴趣
 
@@ -2535,9 +2519,7 @@ pc: 云盘歌曲信息，如果不存在该字段，则为非云盘歌曲
 
 **调用例子 :** `/personal_fm`
 
-返回数据如下图 :
 
-![私人 FM](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/personal_fm.png)
 
 ### 签到
 
@@ -2550,11 +2532,8 @@ pc: 云盘歌曲信息，如果不存在该字段，则为非云盘歌曲
 
 **调用例子 :** `/daily_signin`
 
-返回数据如下图 :
 
-![签到成功](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/signinSuccess.png)
 
-![签到失败](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/signinError.png)
 
 ### 乐签信息
 
@@ -2574,13 +2553,10 @@ pc: 云盘歌曲信息，如果不存在该字段，则为非云盘歌曲
 
 **调用例子 :** `/like?id=347230`
 
-返回数据如下图 :
 
-![喜欢成功](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/like.png)
 
 喜欢成功则返回数据的 code 为 200, 其余为失败
 
-![喜欢成功截图](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/likeSuccess.png)
 
 ### 喜欢音乐列表
 
@@ -2602,9 +2578,7 @@ pc: 云盘歌曲信息，如果不存在该字段，则为非云盘歌曲
 
 **调用例子 :** `/fm_trash?id=347230`
 
-返回数据如下图 :
 
-![移除成功](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/fm_trash.png)
 
 ### 新碟上架
 
@@ -2676,9 +2650,7 @@ pc: 云盘歌曲信息，如果不存在该字段，则为非云盘歌曲
 
 **调用例子 :** `/top/artists?offset=0&limit=30`
 
-返回数据如下图 :
 
-![热门歌手](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/top_artists.png)
 
 ### 全部 mv
 
@@ -2823,9 +2795,7 @@ MV 数据 , 数据包含 mv 名字 , 歌手 , 发布时间 , mv 视频地址等�
 
 **调用例子 :** `/mv/detail?mvid=5436712`
 
-返回数据如下图 :
 
-![mv 数据](https://raw.githubusercontent.com/Binaryify/NeteaseCloudMusicApi/master/static/mv.png)
 
 ### 获取 mv 点赞转发评论数数据
 
@@ -3023,7 +2993,7 @@ type : 地区
 
 说明 : 登录后调用此接口,使用`'Content-Type': 'multipart/form-data'`上传 mp3 formData(name 为'songFile'),可上传歌曲到云盘
 
-参考: https://github.com/Binaryify/NeteaseCloudMusicApi/blob/master/public/cloud.html
+参考: https://gitlab.com/Binaryify/NeteaseCloudMusicApi/blob/main/public/cloud.html
 
 访问地址: http://localhost:3000/cloud.html)
 
@@ -3688,7 +3658,7 @@ type='1009' 获取其 id, 如`/search?keywords= 代码时间 &type=1009`
 
 主机模式:
 
-代码可参考: https://github.com/Binaryify/NeteaseCloudMusicApi/blob/master/public/listen_together_host.html
+代码可参考: https://gitlab.com/Binaryify/NeteaseCloudMusicApi/blob/main/public/listen_together_host.html
 
 访问地址: http://localhost:3000/listen_together_host.html
 
@@ -4307,6 +4277,9 @@ ONLINE 已发布
 **接口地址:** `/voicelist/trans`
 
 **必选参数：** 
+`limit`: 取出歌单数量 , 默认为 200
+
+`offset`: 偏移数量 , 用于分页 , 如 :( 评论页数 -1)\*200, 其中 200 为 limit 的值
 
 `position`: 位置, 最小为1, 最大为歌曲数量, 超过最大则为移动到最底, 小于1报错
 
@@ -4323,6 +4296,18 @@ ONLINE 已发布
 **必选参数：** 
 
 `id`: 播客id，即voiceListId
+
+### 播客删除
+
+说明: 可以删除播客
+
+**接口地址:** `/voice/delete`
+
+**必选参数：** 
+
+`ids`: 播客id，即voiceListId,多个以逗号隔开
+
+
 
 ### 播客上传声音
 说明: 可以上传声音到播客,例子在 `/public/voice_upload.html` 访问地址: <a href="/voice_upload.html" target="_blank">/voice_upload.html</a>
@@ -4567,6 +4552,20 @@ qrCodeStatus:20,detailReason:0  验证成功qrCodeStatus:21,detailReason:0 二�
 
 **调用例子:** `/song/red/count?id=186016`
 
+### 私人 FM 模式选择
+
+说明: 调用此接口返回私人 FM 内容, 并可以选择模式
+
+**必选参数：**     
+
+`mode`: 模式 (aidj, DEFAULT, FAMILIAR, EXPLORE, SCENE_RCMD)
+
+**可选参数：**  
+
+`submode`: 当 mode 为 SCENE_RCMD 是可为 ( EXERCISE, FOCUS, NIGHT_EMO )
+
+**接口地址:** `/personal/fm/mode`
+
 ## 离线访问此文档
 
 此文档同时也是 Progressive Web Apps(PWA), 加入了 serviceWorker, 可离线访问
@@ -4577,4 +4576,4 @@ qrCodeStatus:20,detailReason:0  验证成功qrCodeStatus:21,detailReason:0 二�
 
 ## License
 
-[The MIT License (MIT)](https://github.com/Binaryify/NeteaseCloudMusicApi/blob/master/LICENSE)
+[The MIT License (MIT)](https://gitlab.com/Binaryify/NeteaseCloudMusicApi/blob/main/LICENSE)
